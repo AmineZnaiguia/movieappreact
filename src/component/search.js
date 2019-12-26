@@ -2,8 +2,7 @@ import React, { Component } from "react";
 import { Row, Col } from "antd";
 import { Input } from "antd";
 
-import Raiting from './raiting'
-import { Button, Radio, Icon } from "antd";
+
 const { Search } = Input;
 
 export default class search extends Component {

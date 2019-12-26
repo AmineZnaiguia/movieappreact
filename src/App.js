@@ -2,6 +2,7 @@ import React from "react";
 import Search from "./component/search";
 import Raitingfilter from "./component/raitingfilter"
 import Film from "./component/film";
+import Loading from "./component/loading"
 import "./App.css";
 
 
@@ -12,6 +13,7 @@ import "./App.css";
 class App extends React.Component {
   state = {
     testInput: "",
+    isLoading:false,
     rate: 0,
     movielist: [
       {
@@ -37,8 +39,9 @@ class App extends React.Component {
         raiting: 2
       }
     ]
+    
   };
-
+ 
   handleadd = (img, titlef, raiting) => {
     this.setState({
       movielist: this.state.movielist.concat({ img, titlef, raiting })
@@ -67,15 +70,22 @@ class App extends React.Component {
     return (movielist.filter(el => el.raiting >= rate&&el.titlef.toLowerCase().includes(testInput.toLowerCase())));
   };
 
+  componentDidMount() {
+    setTimeout(() => {
+      this.setState({isLoading:true})
+    }, 3000)
+  }
+
 
   // handleRateFilter=(movielist, rate)=>{
   //   return (movielist.filter(el =>))
   // }
 
   render() {
-    
-    return (
-      <div className="App">
+   
+    return !this.state.isLoading?<Loading /> :(
+        
+         <div className="App">
         <Search testinput={this.getTestInput} />
         <Raitingfilter raiting={this.state.rate} handleRate={(newRate)=>this.handleRaiting(newRate)} />
         <Film
@@ -84,8 +94,9 @@ class App extends React.Component {
           
           handleadd={this.handleadd}
         />
-      </div>
-    );
+      </div>)
+      
+    
   }
 }
 

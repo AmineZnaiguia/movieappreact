@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Addbutton from './addfilm'
 import Raiting from './raiting'
 import { Card } from 'antd';
-import { Row, Col } from 'antd';
+
 const { Meta } = Card;
 
 
