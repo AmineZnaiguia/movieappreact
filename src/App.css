@@ -1,0 +1,23 @@
+.marg-imput{
+    margin-top: 40px;
+}
+.pad-content{
+    padding: 80px;
+}
+.disp-film{
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.film-block{
+  
+    margin: 20px;
+}
+.raiting{
+ font-size: 25px;
+ display: flex;
+ 
+  
+  /* margin: -50px 100px 0 0; */
+ 
+}
